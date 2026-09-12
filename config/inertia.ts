@@ -1,6 +1,7 @@
 import { defineConfig } from '@adonisjs/inertia'
 
 const inertiaConfig = defineConfig({
+  encryptHistory: true,
   /**
    * Server-side rendering options.
    */
