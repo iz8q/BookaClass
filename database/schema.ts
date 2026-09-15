@@ -7,6 +7,31 @@
 import { BaseModel, column } from '@adonisjs/lucid/orm'
 import { DateTime } from 'luxon'
 
+export class ClassSchema extends BaseModel {
+  static $columns = ['capacity', 'createdAt', 'description', 'durationMinutes', 'id', 'instructorName', 'recurrenceRule', 'startTime', 'title', 'updatedAt'] as const
+  $columns = ClassSchema.$columns
+  @column()
+  declare capacity: number
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column()
+  declare description: string | null
+  @column()
+  declare durationMinutes: number
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare instructorName: string
+  @column()
+  declare recurrenceRule: string | null
+  @column.dateTime()
+  declare startTime: DateTime
+  @column()
+  declare title: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
 export class UserSchema extends BaseModel {
   static $columns = ['createdAt', 'email', 'fullName', 'id', 'password', 'role', 'updatedAt'] as const
   $columns = UserSchema.$columns
