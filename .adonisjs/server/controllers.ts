@@ -4,6 +4,11 @@
  */
 
 export const controllers = {
+  admin: {
+    Classes: () => import('#controllers/admin/classes_controller'),
+    Dashboard: () => import('#controllers/admin/dashboard_controller'),
+  },
+  Classes: () => import('#controllers/classes_controller'),
   NewAccount: () => import('#controllers/new_account_controller'),
   Session: () => import('#controllers/session_controller'),
 }

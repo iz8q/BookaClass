@@ -19,6 +19,30 @@ export interface Registry {
       errorResponse: unknown
     }
   }
+  'classes.index': {
+    methods: ["GET","HEAD"]
+    pattern: '/classes'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/classes_controller').default['index']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/classes_controller').default['index']>>>
+    }
+  }
+  'classes.show': {
+    methods: ["GET","HEAD"]
+    pattern: '/classes/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/classes_controller').default['show']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/classes_controller').default['show']>>>
+    }
+  }
   'new_account.create': {
     methods: ["GET","HEAD"]
     pattern: '/signup'
@@ -77,6 +101,102 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#controllers/session_controller').default['destroy']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/session_controller').default['destroy']>>>
+    }
+  }
+  'admin.dashboard': {
+    methods: ["GET","HEAD"]
+    pattern: '/admin'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/admin/dashboard_controller').default['index']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/admin/dashboard_controller').default['index']>>>
+    }
+  }
+  'admin.classes.index': {
+    methods: ["GET","HEAD"]
+    pattern: '/admin/classes'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/admin/classes_controller').default['index']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/admin/classes_controller').default['index']>>>
+    }
+  }
+  'admin.classes.create': {
+    methods: ["GET","HEAD"]
+    pattern: '/admin/classes/create'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/admin/classes_controller').default['create']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/admin/classes_controller').default['create']>>>
+    }
+  }
+  'admin.classes.store': {
+    methods: ["POST"]
+    pattern: '/admin/classes'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/admin/classes_controller').default['store']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/admin/classes_controller').default['store']>>>
+    }
+  }
+  'admin.classes.show': {
+    methods: ["GET","HEAD"]
+    pattern: '/admin/classes/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/admin/classes_controller').default['show']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/admin/classes_controller').default['show']>>>
+    }
+  }
+  'admin.classes.edit': {
+    methods: ["GET","HEAD"]
+    pattern: '/admin/classes/:id/edit'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/admin/classes_controller').default['edit']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/admin/classes_controller').default['edit']>>>
+    }
+  }
+  'admin.classes.update': {
+    methods: ["PUT","PATCH"]
+    pattern: '/admin/classes/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/admin/classes_controller').default['update']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/admin/classes_controller').default['update']>>>
+    }
+  }
+  'admin.classes.destroy': {
+    methods: ["DELETE"]
+    pattern: '/admin/classes/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/admin/classes_controller').default['destroy']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/admin/classes_controller').default['destroy']>>>
     }
   }
 }
