@@ -8,7 +8,6 @@ const dbConfig = defineConfig({
       client: 'pg',
       connection: {
         connectionString: env.get('DATABASE_URL'),
-        ssl: { rejectUnauthorized: false },
       },
       pool: {
         min: 0,
