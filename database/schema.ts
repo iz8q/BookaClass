@@ -51,6 +51,25 @@ export class ClassSchema extends BaseModel {
   declare updatedAt: DateTime | null
 }
 
+export class SubscriptionSchema extends BaseModel {
+  static $columns = ['createdAt', 'currentPeriodEnd', 'id', 'plan', 'stripeSubscriptionsId', 'updatedAt', 'userId'] as const
+  $columns = SubscriptionSchema.$columns
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column.dateTime()
+  declare currentPeriodEnd: DateTime
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare plan: string
+  @column()
+  declare stripeSubscriptionsId: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+  @column()
+  declare userId: number
+}
+
 export class UserSchema extends BaseModel {
   static $columns = ['createdAt', 'email', 'fullName', 'id', 'password', 'role', 'stripeCustomerId', 'updatedAt'] as const
   $columns = UserSchema.$columns
