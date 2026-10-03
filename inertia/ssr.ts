@@ -1,5 +1,6 @@
 import { client } from '~/client'
-import Layout from '~/layouts/default.vue'
+import DefaultLayout from '~/layouts/default.vue'
+import AuthLayout from '~/layouts/auth.vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import { TuyauProvider } from '@adonisjs/inertia/vue'
 import { renderToString } from '@vue/server-renderer'
@@ -14,7 +15,7 @@ export default function render(page: any) {
       return resolvePageComponent(
         `./pages/${name}.vue`,
         import.meta.glob<DefineComponent>('./pages/**/*.vue', { eager: true }),
-        Layout
+        name.startsWith('auth/') ? AuthLayout : DefaultLayout
       )
     },
     setup: ({ App, props, plugin }) => {
