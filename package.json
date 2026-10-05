@@ -76,6 +76,7 @@
     "@adonisjs/static": "^2.0.1",
     "@adonisjs/vite": "^6.0.1",
     "@inertiajs/vue3": "^3.7.0",
+    "@nuxt/ui": "^4.11.3",
     "@tailwindcss/vite": "^4.3.3",
     "@tuyau/core": "^1.2.2",
     "@vinejs/vine": "^4.4.0",

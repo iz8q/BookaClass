@@ -3,17 +3,25 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title data-inertia>
-      AdonisJS
-    </title>
-
+    <meta name="color-scheme" content="light dark" />                                                                               
+    <title data-inertia>                                                                                                            
+      AdonisJS                                                                                                                      
+    </title>                                                                                                                        
+                                                                                                                                    
+    <script>
+      if (localStorage.getItem('vueuse-color-scheme') === 'dark' || ((!localStorage.getItem('vueuse-color-scheme') || localStorage.
+      getItem('vueuse-color-scheme') === 'auto') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      }                                                                                                               
+    </script>
+    
     @vite(['inertia/app.ts'])
     @inertiaHead()
     @stack('dumper')
   </head>
 
   <body>
-    @inertia()
+    @inertia({ class: 'isolate' })
   </body>
 
 </html>

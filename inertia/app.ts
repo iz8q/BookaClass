@@ -7,6 +7,7 @@ import { createInertiaApp } from '@inertiajs/vue3'
 import { TuyauProvider } from '@adonisjs/inertia/vue'
 import { createApp, type DefineComponent, h } from 'vue'
 import { resolvePageComponent } from '@adonisjs/inertia/helpers'
+import ui from '@nuxt/ui/vue-plugin'
 
 const appName = import.meta.env.VITE_APP_NAME || 'AdonisJS'
 
@@ -22,6 +23,7 @@ createInertiaApp({
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(TuyauProvider, { client }, { default: () => h(App, props) }) })
       .use(plugin)
+      .use(ui)
       .mount(el)
   },
   progress: {
