@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { watch } from 'vue'
 import { usePage } from '@inertiajs/vue3'
-import { toast } from 'vue-sonner'
+import { toast, Toaster } from 'vue-sonner'
 import type { Data } from '@generated/data'
-import { Toaster } from '~/components/ui/sonner'
 import { Link } from '@adonisjs/inertia/vue'
 
 const page = usePage<Data.SharedProps>()
@@ -34,6 +33,6 @@ watch(
       <slot />
     </div>
 
-    <Toaster position="top-center" :expand="true" rich-colors />
+    <Toaster position="top-center" rich-colors />
   </main>
 </template>
