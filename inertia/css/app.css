@@ -1,5 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 @import '@nuxt/ui';
+
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+}
+
+@theme static {
+  --color-saturated-mauve-50: oklch(96.1% 0.021 325.68);
+  --color-saturated-mauve-100: oklch(92.4% 0.039 325.829);
+  --color-saturated-mauve-200: oklch(88% 0.057 325.83);
+  --color-saturated-mauve-300: oklch(81.2% 0.073 325.398);
+  --color-saturated-mauve-400: oklch(66.1% 0.084 323.292);
+  --color-saturated-mauve-500: oklch(52.4% 0.079 322.443);
+  --color-saturated-mauve-600: oklch(42.7% 0.064 322.128);
+  --color-saturated-mauve-700: oklch(34.6% 0.048 322.004);
+  --color-saturated-mauve-800: oklch(27.4% 0.034 321.983);
+  --color-saturated-mauve-900: oklch(20.7% 0.02 322.028);
+  --color-saturated-mauve-950: oklch(14.5% 0.008 322.12);
+}
+
+:root {
+  --ui-radius: 0.375rem;
+}
+
+:root,
+.light {
+  --ui-bg: var(--ui-color-neutral-50);
+  --ui-bg-muted: var(--ui-color-neutral-100);
+  --ui-text-inverted: var(--ui-color-neutral-50);
+}
+
+.dark {
+  --ui-bg-inverted: var(--ui-color-neutral-50);
+  --ui-text-highlighted: var(--ui-color-neutral-50);
+  --ui-border-inverted: var(--ui-color-neutral-50);
+  --ui-bg: var(--ui-color-neutral-900);
+  --ui-bg-muted: var(--ui-color-neutral-800);
+  --ui-text-inverted: var(--ui-color-neutral-900);
+}
 
 @layer base {
   button:not(:disabled),

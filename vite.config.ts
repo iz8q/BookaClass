@@ -14,8 +14,9 @@ export default defineConfig({
       },
       ui: {
         colors: {
-          primary: 'neutral',
-          neutral: 'neutral',
+          primary: 'pink',
+          secondary: 'violet',
+          neutral: 'saturated-mauve',
         },
       },
     }),
