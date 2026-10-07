@@ -18,6 +18,11 @@ export default defineConfig({
           secondary: 'violet',
           neutral: 'saturated-mauve',
         },
+        toast: {
+          slots: {
+            progress: 'absolute inset-x-0 top-0',
+          },
+        },
       },
     }),
   ],
