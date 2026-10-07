@@ -1,4 +1,4 @@
-import vine from '@vinejs/vine'
+import vine, { SimpleMessagesProvider } from '@vinejs/vine'
 
 const email = () => vine.string().email().maxLength(254)
 const password = () => vine.string().minLength(8).maxLength(32)
@@ -17,7 +17,14 @@ export const signupValidator = vine.create({
   passwordConfirmation: vine.string(),
 })
 
+signupValidator.messagesProvider = new SimpleMessagesProvider(
+  {},
+  {
+    passwordConfirmation: 'password confirmation',
+  }
+)
+
 export const loginValidator = vine.create({
   email: email(),
-  password: vine.string(),
+  password: password(),
 })
