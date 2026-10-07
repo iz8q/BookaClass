@@ -1,25 +1,31 @@
 <script setup lang="ts">
 import { watch } from 'vue'
 import { usePage } from '@inertiajs/vue3'
-import { toast, Toaster } from 'vue-sonner'
 import type { Data } from '@generated/data'
-import { Link, Form } from '@adonisjs/inertia/vue'
 
 const page = usePage<Data.SharedProps>()
 
+const toast = useToast()
+
 watch(
   () => page.url,
-  () => toast.dismiss()
+  () => toast.clear()
 )
 
 watch(
   () => page.flash,
   (flashMessages) => {
-    if (flashMessages.error) {
-      toast.error(flashMessages.error)
+    if (flashMessages?.error) {
+      toast.add({
+        title: flashMessages.error,
+        color: 'error',
+      })
     }
-    if (flashMessages.success) {
-      toast.success(flashMessages.success)
+    if (flashMessages?.success) {
+      toast.add({
+        title: flashMessages.success,
+        color: 'success',
+      })
     }
   },
   { immediate: true }
@@ -27,31 +33,7 @@ watch(
 </script>
 
 <template>
-  <header>
-    <div>
-      <div>
-        <Link route="home"> home </Link>
-      </div>
-      <div>
-        <nav>
-          <template v-if="page.props.user">
-            <span>{{ page.props.user.initials }}</span>
-            <Form route="session.destroy">
-              <button type="submit">Logout</button>
-            </Form>
-          </template>
-          <template v-else>
-            <Link route="new_account.create">Signup</Link>
-            <Link route="session.create">Login</Link>
-          </template>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main>
+  <UApp :toaster="{ position: 'top-center' }">
     <slot />
-  </main>
-
-  <Toaster position="top-center" rich-colors />
+  </UApp>
 </template>
