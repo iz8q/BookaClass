@@ -45,28 +45,34 @@ const headerLinks: Record<UserRole, HeaderLink[]> = {
   <div class="sticky top-0 w-full max-w-4xl h-12 flex items-center justify-between rounded-lg">
     <Link route="home" class="text-2xl font-medium text-primary">BookaClass</Link>
     <div class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-row">
-      <UButton variant="link" v-for="link in headerLinks[user?.role ?? 'guest']" :key="link.label">
-        <Link :route="link.route" :method="link.method" :params="link.params">
+      <Link
+        v-for="link in headerLinks[user?.role ?? 'guest']"
+        :key="link.label"
+        :route="link.route"
+        :method="link.method"
+        :params="link.params"
+      >
+        <UButton as="span" variant="link">
           {{ link.label }}
-        </Link>
-      </UButton>
+        </UButton>
+      </Link>
     </div>
     <div class="flex flex-row gap-2 items-center">
       <template v-if="!user">
-        <UButton variant="ghost">
-          <Link route="session.create">Login</Link>
-        </UButton>
-        <UButton>
-          <Link route="new_account.create">Signup</Link>
-        </UButton>
+        <Link route="session.create">
+          <UButton as="span" variant="ghost">Login</UButton>
+        </Link>
+        <Link route="new_account.create">
+          <UButton as="span">Signup</UButton>
+        </Link>
       </template>
       <template v-else>
         <p class="text-sm">
           {{ user?.initials }}
         </p>
-        <UButton variant="ghost" color="error">
-          <Link route="session.destroy">Logout</Link>
-        </UButton>
+        <Link route="session.destroy" method="post">
+          <UButton as="span" variant="ghost" color="error">Logout</UButton>
+        </Link>
       </template>
     </div>
   </div>
