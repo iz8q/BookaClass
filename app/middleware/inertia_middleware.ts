@@ -13,7 +13,11 @@ export default class InertiaMiddleware extends BaseInertiaMiddleware {
      * In that case, we must always assume that HttpContext is not fully hydrated
      * with all the properties
      */
-    const { auth } = ctx as Partial<HttpContext>
+    const { auth, session } = ctx as Partial<HttpContext>
+
+    if (session?.flashMessages.has('clear_history')) {
+      ctx.inertia.clearHistory()
+    }
 
     /**
      * Data shared with all Inertia pages. Make sure you are using
