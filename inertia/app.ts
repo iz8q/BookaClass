@@ -1,8 +1,7 @@
 import './css/app.css'
 import 'vue-sonner/style.css'
 import { client } from '~/client'
-import DefaultLayout from '~/layouts/default.vue'
-import AuthLayout from '~/layouts/auth.vue'
+import Layout from '~/layouts/default.vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import { TuyauProvider } from '@adonisjs/inertia/vue'
 import { createApp, type DefineComponent, h } from 'vue'
@@ -17,7 +16,7 @@ createInertiaApp({
     return resolvePageComponent(
       `./pages/${name}.vue`,
       import.meta.glob<DefineComponent>('./pages/**/*.vue'),
-      name.startsWith('auth/') ? AuthLayout : DefaultLayout
+      Layout
     )
   },
   setup({ el, App, props, plugin }) {

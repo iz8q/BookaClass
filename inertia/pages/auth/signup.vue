@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import AuthLayout from '~/layouts/auth.vue'
+
+defineOptions({
+  layout: AuthLayout,
+})
+
 import { Form } from '@adonisjs/inertia/vue'
 </script>
 
