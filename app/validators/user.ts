@@ -18,7 +18,9 @@ export const signupValidator = vine.create({
 })
 
 signupValidator.messagesProvider = new SimpleMessagesProvider(
-  {},
+  {
+    confirmed: 'The {{ field }} must match your password.',
+  },
   {
     passwordConfirmation: 'password confirmation',
   }
