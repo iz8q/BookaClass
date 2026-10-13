@@ -1,11 +1,19 @@
+import Class from '#models/class'
+import ClassTransformer from '#transformers/class_transformer'
 import type { HttpContext } from '@adonisjs/core/http'
 
 export default class ClassesController {
   /**
    * Display a list of resource
    */
-  async index({}: HttpContext) {
-    return 'admin classes'
+  async index({ inertia, request }: HttpContext) {
+    return inertia.render('admin/classes/index', {
+      classes: inertia.scroll(async () => {
+        const page = request.input('page', 1)
+        const classes = await Class.query().orderBy('id', 'asc').paginate(page, 10)
+        return ClassTransformer.paginate(classes.all(), classes.getMeta())
+      }),
+    })
   }
 
   /**
